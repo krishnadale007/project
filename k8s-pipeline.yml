@@ -15,7 +15,7 @@ spec:
     spec: 
       containers:
       - name: docker-jenkins
-        image: sohampatil08/DevOpsTool-jenkins:latest
+        image: sohampatil08/devops-tool-jenkins-pipeline:latest
         ports:
         - containerPort: 80
           protocol: TCP
