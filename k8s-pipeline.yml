@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: css-service
 spec:
   selector:
     name: pipeline-tag    # This should match the labels in the deployment
