@@ -3,7 +3,8 @@ pipeline {
 
     environment {
         DOCKERHUB_REPO = 'sohampatil08/devops-tool-jenkins-pipeline'
-                }
+    }
+
     stages {
         stage('Pull Source Code') {
             steps {
@@ -13,23 +14,26 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh ''' docker build -t ${DOCKERHUB_REPO}:${env.BUILD_NUMBER} . '''
+                sh 'docker build -t ${DOCKERHUB_REPO}:${env.BUILD_NUMBER} .'
             }
         }
+
         stage('Push Docker Image') {
             environment {
                 registryCredential = 'docker-creds'
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) 
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                        sh 'docker push ${DOCKERHUB_REPO}:${env.BUILD_NUMBER}'
+                    }
                 }
-                sh ''' docker push ${DOCKERHUB_REPO}:${env.BUILD_NUMBER} '''
             }
         }
+
         stage('Deploy') {
             steps {
-                echo '"deployed successfully"'
+                echo 'deployed successfully'
             }
         }
     }
