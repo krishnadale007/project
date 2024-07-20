@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Pull Source Code') {
             steps {
-                git 'https://github.com/Shantanu20000/CSS_Host_Site_With_Jenkins_Pipline.git'
+                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'
             }
         }
 
@@ -40,6 +40,7 @@ pipeline {
                     script {
                         sh """
                     aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config
+                    kubectl apply -f k8s-pipeline.yml  --kubeconfig=/tmp/config
                     kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config 
                     """
                     }
