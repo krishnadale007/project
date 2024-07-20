@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_REPO = 'sohampatil08/devops-tool-jenkins-pipeline'
+                }
+    stages {
+        stage('Pull Source Code') {
+            steps {
+                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh ''' docker build -t ${DOCKERHUB_REPO}:${env.BUILD_NUMBER} . '''
+            }
+        }
+        stage('Push Docker Image') {
+            environment {
+                registryCredential = 'docker-creds'
+            }
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) 
+                }
+                sh ''' docker push ${DOCKERHUB_REPO}:${env.BUILD_NUMBER} '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo '"deployed successfully"'
+            }
+        }
+    }
+}
