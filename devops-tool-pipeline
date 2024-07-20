@@ -31,9 +31,19 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Kubernetes') {
+            environment {
+                AWS_CREDENTIALS = 'aws-creds'
+            }
             steps {
-                echo 'deployed successfully'
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: AWS_CREDENTIALS]]) {
+                    script {
+                        sh """
+                    aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config
+                    kubectl apply -f k8s_onepod.yaml  --kubeconfig=/tmp/config 
+                    """
+                    }
+                }
             }
         }
     }
