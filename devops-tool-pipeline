@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-                        sh 'docker push ${DOCKERHUB_REPO}:${env.BUILD_NUMBER}'
+                        sh 'docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}'
                     }
                 }
             }
