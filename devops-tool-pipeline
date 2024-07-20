@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_REPO = 'sohampatil08/devops-tool-jenkins-pipeline'
+        DOCKERHUB_REPO = 'shan20000/css_template'
     }
 
     stages {
