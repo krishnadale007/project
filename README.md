@@ -25,16 +25,16 @@ sudo apt-get install Jenkins
 sudo apt update
 sudo apt install fontconfig openjdk-17-jre
 sudo java -version
-sudo alternatives --config java //update java version to 17
+sudo alternatives --config java   #update java version to openjdk version "17.0.8" 2023-07-18
 sudo java -version
-openjdk version "17.0.8" 2023-07-18
+#openjdk version "17.0.8" 2023-07-18
 sudo systemctl enable Jenkins
 sudo systemctl start Jenkins
 sudo systemctl status Jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 # Now, hit PulicIP:8080 on Browser to start Jenkins-server
-PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
+### PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
 ## ADD Plugins
 1.Git
 2.Docker
@@ -57,5 +57,20 @@ sudo gpasswd -a jenkins docker
 sudo chown jenkins /var/run/docker.sock
 sudo ll /var/run/docker.sock
 ```
-
+# Set-Up Kubernetes on Jenkins server
+## Create cluster and node
+```shell
+aws configure
+aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config
+chown jenkins:jenkins /tmp/config
+```
+## Install kubectl commands on jenkins server
+```
+sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+sudo chmod +x kubectl
+      mkdir -p ~/.local/bin
+      mv ./kubectl ~/.local/bin/kubectl
+      # and then append (or prepend) ~/.local/bin to $PATH
+sudo kubectl cluster-info
 
