@@ -1,6 +1,6 @@
 # Download CSS-TEMPLATE files(index.html,CSS,images,JS)
 ```shell
-wget https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
+curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
 ## upload all CSS-Template files to github Repository
 
@@ -24,13 +24,38 @@ sudo apt-get install Jenkins
 ##INSTALL JAVA PACK
 sudo apt update
 sudo apt install fontconfig openjdk-17-jre
-java -version
-alternatives --config java //update java version to 17
+sudo java -version
+sudo alternatives --config java //update java version to 17
+sudo java -version
 openjdk version "17.0.8" 2023-07-18
-OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
-OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
-$ sudo systemctl enable Jenkins
-$ sudo systemctl start Jenkins
-$ sudo systemctl status Jenkins
-##Now hit PulicIP:8080 on Browser
+sudo systemctl enable Jenkins
+sudo systemctl start Jenkins
+sudo systemctl status Jenkins
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+# Now, hit PulicIP:8080 on Browser to start Jenkins-server
+PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
+## ADD Plugins
+1.Git
+2.Docker
+3.Kubernetes
+4.Aws-Credential
+## ADD Credentials
+1.Docker-creds
+2.aws-creds
+
+# connect jenkins server use its Terminal
+```shell
+sudo yum install docker -y
+sudo yum install git -y
+sudo systemctl docker start
+sudo systemctl start docker
+sudo systemctl enable docker 
+sudo chmod 666 /var/run/docker.sock
+sudo gpasswd -aG jenkins docker
+sudo gpasswd -a jenkins docker
+sudo chown jenkins /var/run/docker.sock
+sudo ll /var/run/docker.sock
+```
+
 
