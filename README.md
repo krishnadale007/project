@@ -36,9 +36,10 @@ sudo apt-get install Jenkins -y
 ```
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable Jenkins
-sudo systemctl start Jenkins
-sudo systemctl status Jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 # Now, hit PulicIP:8080 on Browser to start Jenkins-server
