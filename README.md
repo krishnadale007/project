@@ -45,14 +45,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 # Now, hit PulicIP:8080 on Browser to start Jenkins-server
 ### PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
-## ADD Plugins
-1.Git
-2.Docker
-3.Kubernetes
-4.Aws-Credential
-## ADD Credentials
-1.Docker-creds
-2.aws-creds
+###  Install suggested plugins & Add Plugins
+##### 1.Git
+##### 2.Docker
+##### 3.Kubernetes
+##### 4.Aws-Credential
+### ADD Credentials
+##### 1.Docker-creds
+##### 2.aws-creds
 
 # connect jenkins server & use its Terminal
 ```shell
