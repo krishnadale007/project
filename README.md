@@ -66,7 +66,7 @@ aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tm
 chown jenkins:jenkins /tmp/config
 ```
 ## Install kubectl commands on jenkins server
-```
+```shell
 sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 sudo chmod +x kubectl
@@ -74,4 +74,42 @@ sudo chmod +x kubectl
       mv ./kubectl ~/.local/bin/kubectl
       # and then append (or prepend) ~/.local/bin to $PATH
 sudo kubectl cluster-info
+```
+# Create Manifest-file/yaml-file on Github repository
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: css-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: pipeline-tag
+  template:
+    metadata:
+      name: my-css
+      labels:
+        name: pipeline-tag
+    spec: 
+      containers:
+      - name: docker-jenkins
+        image: sohampatil08/devops-tool-jenkins-pipeline
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: css-service
+spec:
+  selector:
+    name: pipeline-tag    # This should match the labels in the deployment
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+    protocol: TCP
+  type: LoadBalancer
 
