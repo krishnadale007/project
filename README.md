@@ -2,8 +2,9 @@
 ```shell
 wget https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
-##upload all CSS-Template files to github Repository
-#Create Dockerfile
+## upload all CSS-Template files to github Repository
+
+# Create Dockerfile
 ```shell
 FROM nginx:latest
 COPY . /usr/share/nginx/html
@@ -11,7 +12,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-#Create Jenkins Server(java-17-openjdk)
+# Create Jenkins Server(java-17-openjdk)
 ```shell
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
