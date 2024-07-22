@@ -34,6 +34,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 sudo apt-get update
 sudo apt-get install Jenkins -y
 ```
+```
 sudo systemctl daemon-reload
 sudo systemctl enable Jenkins
 sudo systemctl start Jenkins
