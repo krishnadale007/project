@@ -44,7 +44,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 1.Docker-creds
 2.aws-creds
 
-# connect jenkins server use its Terminal
+# connect jenkins server & use its Terminal
 ```shell
 sudo yum install docker -y
 sudo yum install git -y
@@ -59,6 +59,7 @@ sudo ll /var/run/docker.sock
 ```
 # Set-Up Kubernetes on Jenkins server
 ## Create cluster and node
+## Paste below commands on jenkins server to configure kubernetes
 ```shell
 aws configure
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config
