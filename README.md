@@ -108,7 +108,7 @@ sudo kubectl cluster-info
 ```
 vim k8s-pipeline.yml
 ```
-```
+```shell
 apiVersion: apps/v1
 kind: Deployment
 metadata:
