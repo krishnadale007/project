@@ -6,7 +6,7 @@ curl -O https://www.free-css.com/assets/files/free-css-templates/download/page29
 ## Upload all above CSS-Template files to github Repository
 
 # Create Dockerfile & upload to same Repository
-```
+```shell
 vim Dockerfile
 ```
 ```shell
@@ -40,7 +40,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 sudo apt-get update
 sudo apt-get install Jenkins -y
 ```
-```
+```shell
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
@@ -49,7 +49,7 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
 ###### initialAdminPassword
-```
+```shell
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 # Now, Hit PublicIP(jenkin_Instance):8080 on Browser to start Jenkins-server
@@ -72,13 +72,13 @@ sudo systemctl docker start
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
-```
+```shell
 sudo chmod 666 /var/run/docker.sock
 sudo gpasswd -aG jenkins docker
 sudo gpasswd -a jenkins docker
 sudo chown jenkins /var/run/docker.sock
 ```
-```
+```shell
 sudo -i
 ll /var/run/docker.sock
 ```
@@ -88,7 +88,7 @@ ll /var/run/docker.sock
 ```shell
 aws configure
 ```
-```
+```shell
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
 chown jenkins:jenkins /tmp/config
 ```
@@ -101,11 +101,11 @@ sudo chmod +x kubectl
       mv ./kubectl ~/.local/bin/kubectl
       # and then append (or prepend) ~/.local/bin to $PATH
 ```
-```
+```shell
 sudo kubectl cluster-info
 ```
 # Create Manifest-file/yaml-file & upload to Github repository
-```
+```shell
 vim k8s-pipeline.yml
 ```
 ```shell
@@ -126,7 +126,7 @@ spec:
     spec: 
       containers:
       - name: docker-jenkins
-        image: sohampatil08/devops-tool-jenkins-pipeline      //DockerHub_Image
+        image: sohampatil08/devops-tool-jenkins-pipeline      #DockerHub_Image
         ports:
         - containerPort: 80
           protocol: TCP
@@ -137,7 +137,7 @@ metadata:
   name: css-service
 spec:
   selector:
-    name: pipeline-tag    # This tag should match the labels in the deployment
+    name: pipeline-tag      #This tag should match the labels in the deployment
   ports:
   - name: http
     targetPort: 80
@@ -149,7 +149,7 @@ spec:
 ## Create job>Pipeline>SCM Git Repository:Github_file:<devops-tool-pipeline>
 #
 # Create jenkins-pipeline(jenkinsfile) on Github repository
-```
+```shell
 vim devops-tool-pipeline
 ```
 ```shell
