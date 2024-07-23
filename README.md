@@ -14,7 +14,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 # Create Jenkins Server(java-17-openjdk) 
 ###### Use Ubuntu Image(AMI)
-### connect jenkins server & use its Terminal
+### Connect jenkins server & use its Terminal
 ###### INSTALL JAVA PACK
 ```shell
 sudo apt update
@@ -26,6 +26,7 @@ sudo java -version
 # OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
 # OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
 ```
+###### INSTALL Jenkins
 ```shell
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -128,4 +129,60 @@ spec:
 ## Create job
 ## Pipeline
 ## SCM Git Repository
+# Create jenkins-pipeline(jenkinsfile) on Github repository
+```shell
+pipeline {
+    agent any
 
+    environment {
+        DOCKERHUB_REPO = '<sohampatil08/devops-tool-jenkins-pipeline>'     //upload your Dockerhub_Repository
+    }
+
+    stages {
+        stage('Pull Source Code') {
+            steps {
+                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'    //upload your Github_Repository
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t ${DOCKERHUB_REPO}:${BUILD_NUMBER} .'
+            }
+        }
+
+        stage('Push Docker Image') {
+            environment {
+                registryCredential = 'docker-creds'    //Mention docker-credential NAME here which you've created in JENKINS-credentials
+            }
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', registryCredential) {
+                        sh 'docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}'
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            environment {
+                AWS_CREDENTIALS = 'aws-creds'      //Mention AWS-credential NAME here which you've created in JENKINS-credentials
+            }
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: AWS_CREDENTIALS]]) {
+                    script {
+                        sh """
+                    aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config      //Mention your Cluster_Name & Region here
+                    kubectl apply -f k8s-pipeline.yml  --kubeconfig=/tmp/config                                   //Mention your YAML_file name
+                    kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
+                    """
+                    }
+                }
+            }
+        }
+    }
+}
+```
+## LAST LINE OF PIPELINE EXPLAIN HERE
+#### kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
+##### kubectl set image deployment/<Deployment_Name> <Container_Name>=<DockerHub_Repository>:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
