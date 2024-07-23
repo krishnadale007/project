@@ -12,8 +12,9 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-# Create Jenkins Server(java-17-openjdk) ### Use Ubuntu Image(AMI)
-## connect jenkins server & use its Terminal
+# Create Jenkins Server(java-17-openjdk) 
+###### Use Ubuntu Image(AMI)
+### connect jenkins server & use its Terminal
 ###### INSTALL JAVA PACK
 ```shell
 sudo apt update
