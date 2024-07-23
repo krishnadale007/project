@@ -96,7 +96,7 @@ sudo chmod +x kubectl
       # and then append (or prepend) ~/.local/bin to $PATH
 sudo kubectl cluster-info
 ```
-# Create Manifest-file/yaml-file on Github repository
+# Create Manifest-file/yaml-file & upload to Github repository
 ```
 vim k8s-pipeline.yml
 ```
