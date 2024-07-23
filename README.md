@@ -61,7 +61,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ##### 1.Docker-creds
 ##### 2.AWS-creds
 
-# connect jenkins server & use its Terminal
+# Use jenkins_Instance Terminal
+###### Install required packages:
 ```shell
 sudo yum install docker -y
 sudo yum install git -y
