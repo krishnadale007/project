@@ -216,4 +216,4 @@ pipeline {
 ###### kubectl set image deployment/<Deployment_Name> <Container_Name>=<DockerHub_Repository>:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
 #### kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
 This command updates the docker-jenkins container image in the <css-deployment> deployment to a specific version of the <sohampatil08/devops-tool-jenkins-pipeline> image, determined by the build number from a CI/CD pipeline, using a specific kubeconfig file to connect to the cluster.
-#  After successfully uploaded all the files on GitHub Repository, On jenkins-server(GUI) hit the > Build
+### After successfully uploaded all the files on GitHub Repository, On jenkins-server(GUI) hit the > Build
