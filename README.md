@@ -137,7 +137,7 @@ metadata:
   name: css-service
 spec:
   selector:
-    name: pipeline-tag    # This should match the labels in the deployment
+    name: pipeline-tag    # This tag should match the labels in the deployment
   ports:
   - name: http
     targetPort: 80
