@@ -54,7 +54,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ##### 4.Aws-Credential
 ### ADD Credentials
 ##### 1.Docker-creds
-##### 2.aws-creds
+##### 2.AWS-creds
 
 # connect jenkins server & use its Terminal
 ```shell
@@ -74,7 +74,7 @@ sudo ll /var/run/docker.sock
 ## Paste below commands on jenkins server to configure kubernetes
 ```shell
 aws configure
-aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config
+aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
 chown jenkins:jenkins /tmp/config
 ```
 ## Install kubectl commands on jenkins server
