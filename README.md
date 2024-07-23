@@ -83,6 +83,8 @@ ll /var/run/docker.sock
 ### Paste below commands on jenkins server to configure kubernetes
 ```shell
 aws configure
+```
+```
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
 chown jenkins:jenkins /tmp/config
 ```
@@ -94,6 +96,8 @@ sudo chmod +x kubectl
       mkdir -p ~/.local/bin
       mv ./kubectl ~/.local/bin/kubectl
       # and then append (or prepend) ~/.local/bin to $PATH
+```
+```
 sudo kubectl cluster-info
 ```
 # Create Manifest-file/yaml-file & upload to Github repository
