@@ -95,6 +95,9 @@ sudo kubectl cluster-info
 ```
 # Create Manifest-file/yaml-file on Github repository
 ```
+vim k8s-pipeline.yml
+```
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -132,9 +135,8 @@ spec:
   type: LoadBalancer
 ```
 # Create Job on jenkins server
-## Create job
-## Pipeline
-## SCM Git Repository
+## Create job>Pipeline>SCM Git Repository
+#
 # Create jenkins-pipeline(jenkinsfile) on Github repository
 ```shell
 pipeline {
