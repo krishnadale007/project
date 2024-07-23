@@ -146,7 +146,7 @@ spec:
   type: LoadBalancer
 ```
 # Create Job on jenkins server
-## Create job>Pipeline>SCM Git Repository
+## Create job>Pipeline>SCM Git Repository:Github_file:<devops-tool-pipeline>
 #
 # Create jenkins-pipeline(jenkinsfile) on Github repository
 ```
