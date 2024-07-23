@@ -126,7 +126,7 @@ spec:
     spec: 
       containers:
       - name: docker-jenkins
-        image: sohampatil08/devops-tool-jenkins-pipeline
+        image: sohampatil08/devops-tool-jenkins-pipeline      //DockerHub_Image
         ports:
         - containerPort: 80
           protocol: TCP
@@ -154,13 +154,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_REPO = '<sohampatil08/devops-tool-jenkins-pipeline>'     //upload your Dockerhub_Repository
+        DOCKERHUB_REPO = '<sohampatil08/devops-tool-jenkins-pipeline>'     //Mention your Dockerhub_Repository
     }
 
     stages {
         stage('Pull Source Code') {
             steps {
-                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'    //upload your Github_Repository
+                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'    //Mention your Github_Repository
             }
         }
 
