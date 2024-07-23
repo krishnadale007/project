@@ -157,13 +157,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_REPO = '<sohampatil08/devops-tool-jenkins-pipeline>'     //Mention your Dockerhub_Repository
+        DOCKERHUB_REPO = '<sohampatil08/devops-tool-jenkins-pipeline>'     #Mention your Dockerhub_Repository
     }
 
     stages {
         stage('Pull Source Code') {
             steps {
-                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'    //Mention your Github_Repository
+                git 'https://github.com/soham08022001/DevopsTool-Jenkins-Integration.git'    #Mention your Github_Repository
             }
         }
 
@@ -175,7 +175,7 @@ pipeline {
 
         stage('Push Docker Image') {
             environment {
-                registryCredential = 'docker-creds'    //Mention docker-credential NAME here which you've created in JENKINS-credentials
+                registryCredential = 'docker-creds'    #Mention docker-credential NAME here which you've created in JENKINS-credentials
             }
             steps {
                 script {
@@ -188,14 +188,14 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             environment {
-                AWS_CREDENTIALS = 'aws-creds'      //Mention AWS-credential NAME here which you've created in JENKINS-credentials
+                AWS_CREDENTIALS = 'aws-creds'      #Mention AWS-credential NAME here which you've created in JENKINS-credentials
             }
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: AWS_CREDENTIALS]]) {
                     script {
                         sh """
-                    aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config      //Mention your Cluster_Name & Region here
-                    kubectl apply -f k8s-pipeline.yml  --kubeconfig=/tmp/config                                   //Mention your YAML_file name
+                    aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config      #Mention your Cluster_Name & Region here
+                    kubectl apply -f k8s-pipeline.yml  --kubeconfig=/tmp/config                                   #Mention your YAML_file name
                     kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
                     """
                     }
