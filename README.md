@@ -3,7 +3,7 @@
 ```shell
 curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
-## upload all CSS-Template files to github Repository
+## Upload all CSS-Template files to github Repository
 
 # Create Dockerfile
 ```shell
