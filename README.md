@@ -1,4 +1,4 @@
-# Download CSS-TEMPLATE files
+# Download CSS-TEMPLATE Files
 ###### (index.html,CSS,images,JS)
 ```shell
 curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
