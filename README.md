@@ -149,6 +149,9 @@ spec:
 ## Create job>Pipeline>SCM Git Repository
 #
 # Create jenkins-pipeline(jenkinsfile) on Github repository
+```
+vim devops-tool-pipeline
+```
 ```shell
 pipeline {
     agent any
