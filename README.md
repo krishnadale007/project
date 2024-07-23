@@ -205,7 +205,7 @@ pipeline {
     }
 }
 ```
-### Last lines of pipeline explained here:  stage('Deploy to Kubernetes') > script {sh""" -//- """}
+### Last stage of pipeline explained here:  stage('Deploy to Kubernetes') > script {sh""" -//- """}
 ######  Mention your Cluster_Name at my-cluster & Region at ap-south-1
 #### aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config
 #
@@ -214,4 +214,4 @@ pipeline {
 #
 ###### kubectl set image deployment/<Deployment_Name> <Container_Name>=<DockerHub_Repository>:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
 #### kubectl set image deployment/css-deployment docker-jenkins=sohampatil08/devops-tool-jenkins-pipeline:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config
-This command updates the docker-jenkins container image in the css-deployment deployment to a specific version of the <sohampatil08/devops-tool-jenkins-pipeline> image, determined by the build number from a CI/CD pipeline, using a specific kubeconfig file to connect to the cluster.
+This command updates the docker-jenkins container image in the <css-deployment> deployment to a specific version of the <sohampatil08/devops-tool-jenkins-pipeline> image, determined by the build number from a CI/CD pipeline, using a specific kubeconfig file to connect to the cluster.
