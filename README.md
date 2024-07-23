@@ -145,10 +145,10 @@ spec:
     protocol: TCP
   type: LoadBalancer
 ```
-# Create Job on jenkins server
+# Create Job on jenkins server (GUI)
 ## Create job>Pipeline>SCM Git Repository:Github_file:<devops-tool-pipeline>
 #
-# Create jenkins-pipeline(jenkinsfile) on Github repository
+# Create jenkins-pipeline(jenkinsfile) & upload to Github repository
 ```shell
 vim devops-tool-pipeline
 ```
