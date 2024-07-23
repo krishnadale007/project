@@ -73,11 +73,14 @@ sudo chmod 666 /var/run/docker.sock
 sudo gpasswd -aG jenkins docker
 sudo gpasswd -a jenkins docker
 sudo chown jenkins /var/run/docker.sock
-sudo ll /var/run/docker.sock
+```
+```
+sudo -i
+ll /var/run/docker.sock
 ```
 # Set-Up Kubernetes on Jenkins server
 ## Create cluster and node(EKS Service)
-## Paste below commands on jenkins server to configure kubernetes
+### Paste below commands on jenkins server to configure kubernetes
 ```shell
 aws configure
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
