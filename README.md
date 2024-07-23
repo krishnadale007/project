@@ -3,9 +3,12 @@
 ```shell
 curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
-## Upload all CSS-Template files to github Repository
+## Upload all above CSS-Template files to github Repository
 
-# Create Dockerfile
+# Create Dockerfile to same Repository
+```
+vim Dockerfile
+```
 ```shell
 FROM nginx:latest
 COPY . /usr/share/nginx/html
@@ -13,9 +16,9 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-# Create Jenkins Server(java-17-openjdk) 
+# Create Jenkins Server(java-17-openjdk):AWS_INSTANCE 
 ###### Use Ubuntu Image(AMI)
-### Connect jenkins server & use its Terminal
+### Connect jenkins(Instance) server & use its Terminal
 ###### INSTALL JAVA PACK
 ```shell
 sudo apt update
