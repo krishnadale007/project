@@ -46,6 +46,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
+###### initialAdminPassword
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
