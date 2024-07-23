@@ -51,7 +51,7 @@ sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 # Now, hit PulicIP:8080 on Browser to start Jenkins-server
-### PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
+###### PASSWORD >>> cat /var/lib/jenkins/secrets/initialAdminPassword
 ###  Install suggested plugins & Add Plugins
 ##### 1.Git
 ##### 2.Docker
