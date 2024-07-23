@@ -76,7 +76,7 @@ sudo chown jenkins /var/run/docker.sock
 sudo ll /var/run/docker.sock
 ```
 # Set-Up Kubernetes on Jenkins server
-## Create cluster and node
+## Create cluster and node(EKS Service)
 ## Paste below commands on jenkins server to configure kubernetes
 ```shell
 aws configure
