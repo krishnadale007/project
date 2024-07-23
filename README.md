@@ -1,12 +1,12 @@
 #                                            Integrated DevOps Tools & Created Pipeline (GitHub-Docker-k8s-Jenkins)
-# Download CSS-TEMPLATE Files
+## Download CSS-TEMPLATE Files
 ###### (index.html,CSS,images,JS)
 ```shell
 curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
 ## Upload all above CSS-Template files to github Repository
 
-# Create Dockerfile & upload to same Repository
+## Create Dockerfile & upload to same Repository
 ```shell
 vim Dockerfile
 ```
@@ -17,7 +17,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-# Create Jenkins Server(java-17-openjdk):AWS_INSTANCE 
+## Create Jenkins Server(java-17-openjdk):AWS_INSTANCE 
 ###### Use Ubuntu Image(AMI)
 ### Connect jenkins(Instance) server & use its Terminal
 ###### INSTALL JAVA PACK
@@ -65,7 +65,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ##### 1.Docker-creds(USERNAME & TOKEN/PASSWORD)
 ##### 2.AWS-creds(ACCESS_KEY & SECRETE_KEY)
 
-# Use jenkins_Instance Terminal
+## Use jenkins_Instance Terminal
 ###### Install required packages:
 ```shell
 sudo yum install docker -y
@@ -84,7 +84,7 @@ sudo chown jenkins /var/run/docker.sock
 sudo -i
 ll /var/run/docker.sock
 ```
-# Set-Up Kubernetes on Jenkins server
+## Set-Up Kubernetes on Jenkins server
 ## Create cluster and node(EKS Service)
 ### Paste below commands on jenkins server to configure kubernetes
 ```shell
@@ -106,7 +106,7 @@ sudo chmod +x kubectl
 ```shell
 sudo kubectl cluster-info
 ```
-# Create Manifest-file/yaml-file & upload to Github repository
+## Create Manifest-file/yaml-file & upload to Github repository
 ```shell
 vim k8s-pipeline.yml
 ```
@@ -147,10 +147,10 @@ spec:
     protocol: TCP
   type: LoadBalancer
 ```
-# Create Job on jenkins server (GUI)
+## Create Job on jenkins server (GUI)
 ## Create job>Pipeline>SCM Git Repository:Github_file:<devops-tool-pipeline>
 #
-# Create jenkins-pipeline(jenkinsfile) & upload to Github repository
+## Create jenkins-pipeline(jenkinsfile) & upload to Github repository
 ```shell
 vim devops-tool-pipeline
 ```
