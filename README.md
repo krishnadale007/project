@@ -44,6 +44,8 @@ sudo apt-get install Jenkins -y
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
+```
+```
 sudo systemctl status jenkins
 ```
 ###### initialAdminPassword
