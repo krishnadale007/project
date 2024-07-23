@@ -59,7 +59,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ##### 2.Docker
 ##### 3.Kubernetes
 ##### 4.Aws-Credential
-### ADD Credentials
+### Add Credentials
 ##### 1.Docker-creds(USERNAME & TOKEN/PASSWORD)
 ##### 2.AWS-creds(ACCESS_KEY & SECRETE_KEY)
 
@@ -70,7 +70,9 @@ sudo yum install docker -y
 sudo yum install git -y
 sudo systemctl docker start
 sudo systemctl start docker
-sudo systemctl enable docker 
+sudo systemctl enable docker
+```
+```
 sudo chmod 666 /var/run/docker.sock
 sudo gpasswd -aG jenkins docker
 sudo gpasswd -a jenkins docker
