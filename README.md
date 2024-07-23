@@ -5,7 +5,7 @@ curl -O https://www.free-css.com/assets/files/free-css-templates/download/page29
 ```
 ## Upload all above CSS-Template files to github Repository
 
-# Create Dockerfile to same Repository
+# Create Dockerfile & upload to same Repository
 ```
 vim Dockerfile
 ```
