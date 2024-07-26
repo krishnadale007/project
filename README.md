@@ -95,7 +95,7 @@ aws configure
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
 chown jenkins:jenkins /tmp/config
 ```
-## Install kubectl commands on jenkins server
+### Install kubectl commands on jenkins server
 ```shell
 sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -149,7 +149,7 @@ spec:
   type: LoadBalancer
 ```
 ## Create Job on jenkins server (GUI)
-## Create job>Pipeline>SCM Git Repository:Github_file:<devops-tool-pipeline>
+### Create item>Pipeline>SCM_Git_Repository:Github_file:<jenkins-pipeline(jenkinsfile)>
 #
 ## Create jenkins-pipeline(jenkinsfile) & upload to Github repository
 ```shell
