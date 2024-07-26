@@ -5,7 +5,7 @@
 ```shell
 curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/healet.zip
 ```
-#### Upload all above CSS-Template files to github Repository
+#### *Upload all above CSS-Template files to github Repository
 
 ## Create Dockerfile & upload to same Repository
 ```shell
