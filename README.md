@@ -208,7 +208,8 @@ pipeline {
     }
 }
 ```
-### Last stage of pipeline explained here:  stage('Deploy to Kubernetes') > script {sh""" -//- """}
+### Last stage of pipeline explained here:
+#### stage('Deploy to Kubernetes') > script {sh""" -//- """}
 ######  Mention your Cluster_Name at my-cluster & Region at ap-south-1
 #### aws eks update-kubeconfig --name my-cluster --region ap-south-1 --kubeconfig /tmp/config
 #
