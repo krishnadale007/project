@@ -88,6 +88,8 @@ sudo chown jenkins /var/run/docker.sock
 ```
 ```shell
 sudo -i
+```
+```
 ll /var/run/docker.sock
 ```
 ## Set-Up Kubernetes on Jenkins server
