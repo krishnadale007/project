@@ -167,7 +167,7 @@ spec:
   type: LoadBalancer
 ```
 ## Create Job on jenkins server (GUI)
-#### Create, New item > Pipeline > pipeline script from SCM 
+#### Create, New item > Pipeline > pipeline script from SCM(Advanced Project Options) 
 ##### Git_Repository_URL (mention branch) > Script Path:Github_file:<devops-tool-pipeline(jenkinsfile)
 ###### SAVE & APPLY
 #
