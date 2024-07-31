@@ -240,4 +240,5 @@ This command updates the docker-jenkins container image in the <css-deployment> 
 #### Create, New item > Pipeline > pipeline script from SCM(Advanced Project Options) 
 ##### Git_Repository_URL (mention branch) > Script Path:Github_pipeline_file:<devops-tool-pipeline(jenkinsfile)
 ###### SAVE & APPLY
-### After successfully uploaded all the files on GitHub Repository, and created job/item on JENKINS GUI, hit the > Build Now
+### After successfully uploaded all the files on GitHub Repository, and created job/item on JENKINS GUI, 
+##### Hit the > Build Now
