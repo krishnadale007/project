@@ -75,6 +75,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```shell
 sudo yum install docker -y
 sudo yum install git -y
+```
+```
 sudo systemctl docker start
 sudo systemctl start docker
 sudo systemctl enable docker
