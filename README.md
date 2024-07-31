@@ -82,7 +82,7 @@ sudo systemctl enable docker
 ```
 ```shell
 sudo chmod 666 /var/run/docker.sock
-sudo gpasswd -aG jenkins docker
+#sudo gpasswd -aG jenkins docker
 sudo gpasswd -a jenkins docker
 sudo chown jenkins /var/run/docker.sock
 ```
