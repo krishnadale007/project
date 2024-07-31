@@ -105,7 +105,9 @@ snap install aws-cli --classic
 aws configure
 ```
 ```shell
-aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        //  ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
+aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        #ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
+```
+```
 chown jenkins:jenkins /tmp/config
 ```
 ### Install kubectl commands on jenkins server
