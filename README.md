@@ -73,8 +73,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ## Use jenkins_Instance Terminal
 ###### Install required packages:
 ```shell
-sudo yum install docker -y
-sudo yum install git -y
+sudo apt-get install docker -y
+sudo apt-get install git -y
 ```
 ```
 sudo systemctl docker start
