@@ -242,3 +242,4 @@ This command updates the docker-jenkins container image in the <css-deployment> 
 ###### SAVE & APPLY
 ### After successfully uploaded all the files on GitHub Repository, and created job/item on JENKINS GUI, 
 ##### Hit the > Build Now
+![CSS-Template Result](DevOps-pipeline-result.png)
