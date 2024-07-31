@@ -241,7 +241,7 @@ This command updates the docker-jenkins container image in the <css-deployment> 
 ##### Git_Repository_URL (mention branch) > Script Path:Github_pipeline_file:<devops-tool-pipeline(jenkinsfile)
 ###### SAVE & APPLY
 ### After successfully uploaded all the files on GitHub Repository, and created job/item on jenkins GUI, 
-##### Hit the > Build Now
+#### Hit the > Build Now
 ## You will get result of Build stages:
 ![Build stage Result](result-images/build-stages.png)
 #
