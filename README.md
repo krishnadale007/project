@@ -1,5 +1,7 @@
 # Integrated DevOps Tools & Created Pipeline 
 ### GitHub-Docker-Kubernetes-Jenkins
+Creating an integrated DevOps pipeline involving GitHub, Docker, Kubernetes, and Jenkins is a powerful way to manage and deploy CSS templates (or any other type of application). 
+#### Here's a high-level overview of how you can set up such a pipeline:
 ## Download CSS-TEMPLATE Files
 ###### (index.html,CSS,images,JS)
 ```shell
