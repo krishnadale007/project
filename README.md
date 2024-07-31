@@ -96,6 +96,12 @@ ll /var/run/docker.sock
 ### Create cluster and node(EKS Service)
 #### Paste below commands on jenkins server to configure kubernetes
 ```shell
+sudo -i
+```
+```
+snap install aws-cli --classic
+```
+```
 aws configure
 ```
 ```shell
