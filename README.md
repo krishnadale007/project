@@ -104,6 +104,9 @@ snap install aws-cli --classic
 ```
 aws configure
 ```
+```
+aws eks update-kubeconfig --region ap-south-1 --name my-cluster
+```
 ```shell
 aws eks update-kubeconfig --region ap-south-1 --name my-cluster --kubeconfig /tmp/config        #ap-south-1(Region_of_Cluster) & my-cluster(cluster_Name)
 ```
@@ -164,7 +167,7 @@ spec:
   type: LoadBalancer
 ```
 ## Create Job on jenkins server (GUI)
-### Create item>Pipeline>SCM_Git_Repository:Github_file:<jenkins-pipeline(jenkinsfile)>
+### Create New item>Pipeline>SCM_Git_Repository:Github_file:<jenkins-pipeline(jenkinsfile)>
 #
 ## Create jenkins-pipeline(jenkinsfile) & upload to Github repository
 ```shell
