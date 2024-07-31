@@ -77,7 +77,6 @@ sudo apt-get install docker.io -y
 sudo apt-get install git -y
 ```
 ```
-sudo systemctl docker start
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
