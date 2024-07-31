@@ -167,11 +167,11 @@ spec:
   type: LoadBalancer
 ```
 ## Create Job on jenkins server (GUI)
-#### Create, New item > Pipeline>pipeline script from SCM
-##### Git_Repository_URL (mention branch)> Script Path:Github_file:<jenkins-pipeline(jenkinsfile)
+#### Create, New item > Pipeline > pipeline script from SCM 
+##### Git_Repository_URL (mention branch) > Script Path:Github_file:<devops-tool-pipeline(jenkinsfile)
 ###### SAVE & APPLY
 #
-## Create jenkins-pipeline(jenkinsfile) & upload to Github repository
+## Create devops-tool-pipeline(jenkinsfile) & upload to Github repository
 ```shell
 vim devops-tool-pipeline
 ```
