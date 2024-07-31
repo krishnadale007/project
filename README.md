@@ -240,12 +240,12 @@ This command updates the docker-jenkins container image in the <css-deployment> 
 #### Create, New item > Pipeline > pipeline script from SCM(Advanced Project Options) 
 ##### Git_Repository_URL (mention branch) > Script Path:Github_pipeline_file:<devops-tool-pipeline(jenkinsfile)
 ###### SAVE & APPLY
-### After successfully uploaded all the files on GitHub Repository, and created job/item on JENKINS GUI, 
+### After successfully uploaded all the files on GitHub Repository, and created job/item on jenkins GUI, 
 ##### Hit the > Build Now
-##### You will get result of Build stages:
+## You will get result of Build stages:
 ![Build stage Result](result-images/build-stages.png)
-##### Get the DNS of LoadBalancer from jenkins Terminal/EC2(LoadBalancer):
+## Get the DNS of LoadBalancer from jenkins Terminal/EC2(LoadBalancer):
 ![COPY DNS of LB](result-images/LoadBalancer-DNS.png)
-##### Hit the DNS on Browser to watch Deployed Application:
+## Hit the DNS on Browser to watch Deployed Application:
 ![Final Result of Deployed CSS Template](result-images/DevOps-pipeline-result.png)
-# THANK YOU
+#### THANK YOU
