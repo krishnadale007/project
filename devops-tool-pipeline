@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_REPO = 'krishnadale007/css-jenkins'
+        DOCKERHUB_REPO = 'krishnadale/css-jenkins'
     }
 
     stages {
