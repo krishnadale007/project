@@ -44,9 +44,6 @@ pipeline {
                                    namespace: 'default', 
                                    restrictKubeConfigAccess: true, 
                                    serverUrl: 'https://your-cluster-endpoint') {
-
-                        // Update Kubernetes deployment with the new image
-                        sh "kubectl set image deployment/css-deployment docker-jenkins=${DOCKERHUB_REPO}:${DOCKER_TAG}"
                         
                         // Optionally, apply the Kubernetes manifest if needed
                         sh "kubectl apply -f k8s-pipeline.yml"
