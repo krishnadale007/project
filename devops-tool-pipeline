@@ -14,7 +14,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ${DOCKERHUB_REPO}:${BUILD_NUMBER} .'
+                script {
+                    sh 'docker build -t ${DOCKERHUB_REPO}:latest .'
+                }
             }
         }
 
@@ -25,23 +27,29 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', registryCredential) {
-                        sh 'docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}'
+                        sh 'docker push ${DOCKERHUB_REPO}:latest'
                     }
                 }
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            environment {
-                AWS_CREDENTIALS = 'aws-creds'
-            }
+        stage('Kube Deploy') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: AWS_CREDENTIALS]]) {
-                    script {
-                        sh """
-                    aws eks update-kubeconfig --name my-cluster --region us-east-1 --kubeconfig /tmp/config
-                    kubectl set image deployment/css-deployment docker-jenkins=krishnadale007/css-jenkins:${env.BUILD_NUMBER}  --kubeconfig=/tmp/config 
-                    """
+                script {
+                    // Replace with your actual cluster information and credentials ID
+                    withKubeConfig(caCertificate: '', 
+                                   clusterName: 'my-cluster', 
+                                   contextName: 'my-cluster-context', 
+                                   credentialsId: 'k8s-creds', 
+                                   namespace: 'default', 
+                                   restrictKubeConfigAccess: true, 
+                                   serverUrl: 'https://your-cluster-endpoint') {
+
+                        // Update Kubernetes deployment with the new image
+                        sh "kubectl set image deployment/css-deployment docker-jenkins=${DOCKERHUB_REPO}:${DOCKER_TAG}"
+                        
+                        // Optionally, apply the Kubernetes manifest if needed
+                        sh "kubectl apply -f k8s-pipeline.yml"
                     }
                 }
             }
