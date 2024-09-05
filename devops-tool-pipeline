@@ -14,9 +14,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    sh 'docker build -t ${DOCKERHUB_REPO}:latest .'
-                }
+                sh 'docker build -t ${DOCKERHUB_REPO}:latest .'
             }
         }
 
@@ -33,23 +31,13 @@ pipeline {
             }
         }
 
-        stage('Kube Deploy') {
+         stage ("Kube Deploy") {
             steps {
-                script {
-                    // Replace with your actual cluster information and credentials ID
-                    withKubeConfig(caCertificate: '', 
-                                   clusterName: 'my-cluster', 
-                                   contextName: 'my-cluster-context', 
-                                   credentialsId: 'k8s-creds', 
-                                   namespace: 'default', 
-                                   restrictKubeConfigAccess: true, 
-                                   serverUrl: 'https://your-cluster-endpoint') {
-                        
-                        // Optionally, apply the Kubernetes manifest if needed
-                        sh "kubectl apply -f k8s-pipeline.yml"
-                    }
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                 sh "kubectl apply -f k8s-pipeline.yml"
                 }
             }
         }
+        
     }
 }
