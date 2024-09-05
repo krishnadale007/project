@@ -15,7 +15,7 @@ spec:
     spec: 
       containers:
       - name: docker-jenkins
-        image: krishnadale007/css-jenkins
+        image: krishnadale007/css-jenkins:latest
         ports:
         - containerPort: 80
           protocol: TCP
